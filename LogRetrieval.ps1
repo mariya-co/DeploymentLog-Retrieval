@@ -11,7 +11,7 @@ if (!$pingCheck) {
     exit
 }
 # Testing to see if WinRM is configured and can connect to the remote machine
-$testWSMAN =  $testWSMAN = Test-WSMan -Computername $computer -Authentication default -ErrorAction SilentlyContinue
+$testWSMAN = Test-WSMan -Computername $computer -Authentication default -ErrorAction SilentlyContinue
 if (!$testWSMAN) {
     Write-Host "WSMan not configured/connected - please try reinstalling MECM client, otherwise the machine will have to be reimaged."
     Start-Sleep -Seconds 5
@@ -91,5 +91,6 @@ if (Test-Path $windowsupdateLog) {
 
 
 Write-Host -Foregroundcolor Green "Operation finished - please check $logFolder for bare log files, and $filteredFolder for logs that have been filtered down to show only errors and warnings."
+
 
  
